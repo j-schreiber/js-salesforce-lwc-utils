@@ -8,9 +8,10 @@
     </targets>
     <targetConfigs>
       <targetConfig targets="lightning__RecordPage">
-          <objects>
-              <object>Account</object>
-          </objects>
+        <property label="Auto Refresh" name="autoRefresh" type="Boolean" description="Subscribe for changes of the record, automatically refreshing apex." /> 
+        <objects>
+            <object>Account</object>
+        </objects>
       </targetConfig>
   </targetConfigs>
 </LightningComponentBundle>

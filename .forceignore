@@ -18,3 +18,4 @@ src/untracked
 *.standardValueSetTranslation
 *.standardValueSet
 *.appMenu-meta.xml
+settings/**

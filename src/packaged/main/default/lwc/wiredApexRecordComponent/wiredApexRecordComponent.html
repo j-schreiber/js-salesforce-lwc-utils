@@ -1,10 +1,10 @@
 <template>
-    <lightning-card variant="narrow" title="Wired Apex Account">
+    <lightning-card variant="narrow" title={cardTitle}>
         <lightning-layout>
             <lightning-layout-item padding="around-medium">
                 <p>
                     This account is retrieved via an wired apex method. It does
-                    not automatically refresh, even if the
+                    not automatically refresh by default, even if the
                     changeDataCaptureSubscriber is present.
                 </p>
                 <br />
@@ -14,4 +14,19 @@
             </lightning-layout-item>
         </lightning-layout>
     </lightning-card>
+
+    <!--
+        We can subscribe to changes of any sobject or record here,
+        not just the primary record of the flexipage. If you have custom logic 
+        to retrieve the record we are listning for, encapsulate it in a 
+        getter and add this subscriber multiple times. The handleRecordUpdate
+        determins, what action your component does to refresh the data.
+     -->
+    <template if:true={autoRefresh}>
+        <c-record-update-subscriber
+            sobject-name={objectApiName}
+            record-id={recordId}
+            onrecordupdate={handleRecordUpdate}
+        ></c-record-update-subscriber>
+    </template>
 </template>
