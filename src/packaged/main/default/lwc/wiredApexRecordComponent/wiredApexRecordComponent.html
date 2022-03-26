@@ -1,0 +1,17 @@
+<template>
+    <lightning-card variant="narrow" title="Wired Apex Account">
+        <lightning-layout>
+            <lightning-layout-item padding="around-medium">
+                <p>
+                    This account is retrieved via an wired apex method. It does
+                    not automatically refresh, even if the
+                    changeDataCaptureSubscriber is present.
+                </p>
+                <br />
+                <p>Name: {recordName}</p>
+                <p>Billing Street: {recordStreet}</p>
+                <p>Billing City: {recordCity}</p>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>

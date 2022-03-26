@@ -1,6 +1,12 @@
 <template>
     <!-- Remove this for production use. -->
-    <p>Subscribing to updates for: {channelName}</p>
-    <p>Filtering for Id: {recordId}</p>
-    <p>Events registered (see console for details): {registeredEventCount}</p>
+    <lightning-card variant="narrow" title="Change Data Capture Subscriber">
+        <lightning-layout>
+            <lightning-layout-item padding="horizontal-medium">
+                <p>Subscribing to updates for: {channelName}</p>
+                <p>Filtering for Id: {recordId}</p>
+                <p>Events registered: {registeredEventCount}</p>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
 </template>

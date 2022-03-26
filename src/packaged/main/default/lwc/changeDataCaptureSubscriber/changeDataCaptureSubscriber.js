@@ -13,6 +13,13 @@ export default class ChangeDataCaptureSubscriber extends LightningElement {
     this.subscribeChangeEvents();
   }
 
+  /**
+   * The callback function that is passed into the subscribe method from lightning/empApi
+   * This method will receive event for all records of the sobject
+   * Filter for the desired record id by extracting it from the ChangeEventHeader.
+   *
+   * @param {*} changeEvent
+   */
   handleChangeDataCapture = (changeEvent) => {
     console.log(JSON.stringify(changeEvent, null, 2));
     let recordId = changeEvent.data.payload.ChangeEventHeader.recordIds[0];
@@ -26,6 +33,10 @@ export default class ChangeDataCaptureSubscriber extends LightningElement {
     }
   };
 
+  /**
+   * Call this from the connected callback, so the LWC immediately subscribes to the channel,
+   * once it is connected.
+   */
   subscribeChangeEvents() {
     subscribe(this.channelName, -1, this.handleChangeDataCapture)
       .then((response) => {
@@ -38,10 +49,6 @@ export default class ChangeDataCaptureSubscriber extends LightningElement {
         console.log("SUBSCRIPTION FAILED!");
         console.log(error);
       });
-  }
-
-  extractRecordId(changeEvent) {
-    return changeEvent.data.payload.ChangeEventHeader.recordIds[0];
   }
 
   get channelName() {
