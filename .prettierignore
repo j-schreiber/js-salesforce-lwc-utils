@@ -1,7 +1,5 @@
-# List files or directories below to ignore them when running prettier
-# More information: https://prettier.io/docs/en/ignore.html
-#
-
+.gitkeep
+scripts/.config/**
 .sfdx
 .localdevserver
 .*ignore
@@ -9,4 +7,3 @@
 *.sh
 *.log
 documentation/**
-docs/**

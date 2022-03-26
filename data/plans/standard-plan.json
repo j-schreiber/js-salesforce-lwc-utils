@@ -1,11 +1,5 @@
 [
   {
-    "sobject": "CurrencyType",
-    "saveRefs": false,
-    "resolveRefs": false,
-    "files": ["../currency-types.json"]
-  },
-  {
     "sobject": "Account",
     "saveRefs": true,
     "resolveRefs": false,
