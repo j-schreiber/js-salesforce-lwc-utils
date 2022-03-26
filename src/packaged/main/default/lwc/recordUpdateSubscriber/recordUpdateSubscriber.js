@@ -1,12 +1,19 @@
 import { LightningElement, api } from "lwc";
-import { subscribe } from "lightning/empApi";
+import { subscribe, unsubscribe } from "lightning/empApi";
 
 export default class RecordUpdateSubscriber extends LightningElement {
   @api sobjectName;
   @api recordId;
 
+  _subscription = null;
+
   connectedCallback() {
     this.subscribeChangeDataCaptureEvents();
+  }
+
+  disconnectedCallback() {
+    unsubscribe(this._subscription);
+    this._subscription = null;
   }
 
   /**
@@ -35,7 +42,10 @@ export default class RecordUpdateSubscriber extends LightningElement {
   subscribeChangeDataCaptureEvents() {
     subscribe(this.channelName, -1, this.handleChangeDataCapture)
       .then((response) => {
-        console.log("Successfully subscribed to: " + JSON.stringify(response));
+        this._subscription = response;
+        console.log(
+          "Successfully subscribed to: " + JSON.stringify(this._subscription)
+        );
       })
       .catch((error) => {
         console.log("SUBSCRIPTION FAILED!");
