@@ -3,14 +3,14 @@
     <lightning-card variant="narrow" title="Change Data Capture Subscriber">
         <lightning-layout>
             <lightning-layout-item padding="horizontal-medium">
-                <p>Subscribing to updates for: {sobjectName}</p>
+                <p>Subscribing to updates for: {objectApiName}</p>
                 <p>Filtering for Id: {recordId}</p>
                 <p>Events registered: {registeredEventCount}</p>
             </lightning-layout-item>
         </lightning-layout>
     </lightning-card>
     <c-record-update-subscriber
-        sobject-name={sobjectName}
+        sobject-name={objectApiName}
         record-id={recordId}
         onrecordupdate={handleRecordUpdate}
     ></c-record-update-subscriber>

@@ -165,8 +165,8 @@
         </itemInstances>
         <itemInstances>
             <componentInstance>
-                <componentName>recordPageRefresher</componentName>
-                <identifier>c_recordPageRefresher1</identifier>
+                <componentName>changeDataCaptureSubscriber</componentName>
+                <identifier>c_changeDataCaptureSubscriber1</identifier>
             </componentInstance>
         </itemInstances>
         <name>rightsidebar</name>

@@ -1,17 +1,17 @@
 import { LightningElement, api, track } from "lwc";
 
 export default class ChangeDataCaptureSubscriber extends LightningElement {
-  @api sobjectName;
+  @api objectApiName;
   @api recordId;
 
   @track registeredEvents = [];
 
   handleRecordUpdate(recordUpdateEvent) {
     this.registeredEvents.push(recordUpdateEvent);
-    // we dispatch the event again, because the original event is composed: false and bubbles: false
-    // which does not allow it to surpass beyond this parent. If both values are true, we do not need to
-    // dispatch the event egain
-    this.dispatchEvent(new CustomEvent("recordupdate"));
+    // this let's us get rid of the aura component that otherwise would have to wrap around the LWC
+    // it fires the force:refreshView interface that refreshes the record page, related lists and
+    // all wires of the record
+    eval("$A.get('e.force:refreshView').fire();");
   }
 
   get registeredEventCount() {

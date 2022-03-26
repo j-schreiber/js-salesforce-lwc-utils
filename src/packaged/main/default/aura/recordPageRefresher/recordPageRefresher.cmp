@@ -1,9 +1,0 @@
-<aura:component
-    implements="force:hasSObjectName,force:hasRecordId,flexipage:availableForRecordHome"
->
-    <c:changeDataCaptureSubscriber
-        recordId="{!v.recordId}"
-        sobjectName="{!v.sObjectName}"
-        onrecordupdate="{!c.refreshRecordPage}"
-    />
-</aura:component>
